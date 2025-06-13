@@ -1,0 +1,109 @@
+.alien-ship {
+  position: absolute;
+  z-index: 5;
+}
+
+.alien-body {
+  width: 100%;
+  height: 85%;
+  position: relative;
+  filter: drop-shadow(0 0 8px #ff0066);
+}
+
+.alien-dome {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(circle at 30% 30%, #66ff66, #00cc00, #006600);
+  border-radius: 50% 50% 50% 50%;
+  transform: translateX(-50%);
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.alien-base {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, #333333, #666666);
+  border-radius: 50% 50% 10% 10%;
+  transform: translateX(-50%);
+  border: 1px solid #999999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.alien-light {
+  width: 15%;
+  height: 60%;
+  border-radius: 50%;
+  animation: alien-blink 2s infinite;
+}
+
+.alien-light-1 {
+  background: radial-gradient(circle, #ff0000, #cc0000);
+  animation-delay: 0s;
+}
+
+.alien-light-2 {
+  background: radial-gradient(circle, #ffff00, #cccc00);
+  animation-delay: 0.7s;
+}
+
+.alien-light-3 {
+  background: radial-gradient(circle, #0000ff, #0000cc);
+  animation-delay: 1.4s;
+}
+
+@keyframes alien-blink {
+  0%, 85% {
+    opacity: 0.3;
+    box-shadow: none;
+  }
+  90%, 95% {
+    opacity: 1;
+    box-shadow: 0 0 15px currentColor;
+  }
+  100% {
+    opacity: 0.3;
+    box-shadow: none;
+  }
+}
+
+.alien-small .alien-body {
+  filter: drop-shadow(0 0 5px #ff0066);
+}
+
+.alien-medium .alien-body {
+  filter: drop-shadow(0 0 10px #ff0066);
+}
+
+.alien-large .alien-body {
+  filter: drop-shadow(0 0 15px #ff0066);
+}
+
+.alien-large .alien-dome {
+  background: radial-gradient(circle at 30% 30%, #ff6666, #cc0000, #990000);
+}
+
+.health-bar {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+  transition: width 0.2s ease;
+}

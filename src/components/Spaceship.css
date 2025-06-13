@@ -1,0 +1,135 @@
+.spaceship {
+  position: absolute;
+  z-index: 10;
+}
+
+.spaceship-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+.spaceship-wing {
+  position: absolute;
+  background: linear-gradient(45deg, #0066cc, #0099ff);
+  border-radius: 50% 50% 0 0;
+}
+
+.spaceship-wing-left {
+  left: 5%;
+  top: 60%;
+  width: 30%;
+  height: 40%;
+  transform: rotate(-20deg);
+}
+
+.spaceship-wing-right {
+  right: 5%;
+  top: 60%;
+  width: 30%;
+  height: 40%;
+  transform: rotate(20deg);
+}
+
+.spaceship-cockpit {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 40%;
+  height: 70%;
+  background: linear-gradient(180deg, #ff6600, #ffaa00);
+  border-radius: 50% 50% 20% 20%;
+  transform: translateX(-50%);
+  border: 2px solid #ffff00;
+  box-shadow: 0 0 15px #ffaa00;
+}
+
+.spaceship-engine {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 20%;
+  height: 30%;
+  transform: translateX(-50%);
+}
+
+.engine-flame {
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(180deg, #ff0000, #ffaa00, transparent);
+  border-radius: 50% 50% 0 0;
+  animation: engine-flicker 0.1s infinite alternate;
+  filter: blur(1px);
+}
+
+@keyframes engine-flicker {
+  0% {
+    transform: scaleY(1) scaleX(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1.2) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.spaceship:hover .spaceship-body {
+  filter: drop-shadow(0 0 20px #00ffff);
+}
+
+.spaceship:hover .engine-flame {
+  animation-duration: 0.05s;
+}
+
+/* Player-specific styles */
+.spaceship.player1 .spaceship-body {
+  filter: drop-shadow(0 0 10px var(--player-color, #00ff41));
+}
+
+.spaceship.player2 .spaceship-body {
+  filter: drop-shadow(0 0 10px var(--player-color, #ff4081));
+}
+
+.spaceship.player1 .spaceship-wing {
+  background: linear-gradient(45deg, #00aa00, #00ff41);
+}
+
+.spaceship.player2 .spaceship-wing {
+  background: linear-gradient(45deg, #aa0055, #ff4081);
+}
+
+.spaceship.player1 .spaceship-cockpit {
+  background: linear-gradient(180deg, #00ff41, #88ff88);
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 15px #00ff41;
+}
+
+.spaceship.player2 .spaceship-cockpit {
+  background: linear-gradient(180deg, #ff4081, #ff88bb);
+  border: 2px solid #ff4081;
+  box-shadow: 0 0 15px #ff4081;
+}
+
+.spaceship.player1:hover .spaceship-body {
+  filter: drop-shadow(0 0 20px #00ff41);
+}
+
+.spaceship.player2:hover .spaceship-body {
+  filter: drop-shadow(0 0 20px #ff4081);
+}
+
+/* Player name indicator */
+.spaceship::before {
+  content: attr(data-player-name);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--player-color, #ffffff);
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--player-color, #ffffff);
+  white-space: nowrap;
+  pointer-events: none;
+}

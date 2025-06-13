@@ -1,0 +1,289 @@
+.game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  font-family: 'Courier New', monospace;
+}
+
+.game-ui * {
+  pointer-events: auto;
+}
+
+.top-ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.score-section {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.level {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.health-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.health-label {
+  color: #ffffff;
+  font-size: 14px;
+  text-shadow: 0 0 5px #ffffff;
+}
+
+.health-bar-container {
+  width: 200px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.health-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.health-text {
+  color: #ffffff;
+  font-size: 12px;
+  text-shadow: 0 0 5px #ffffff;
+}
+
+.controls-section {
+  display: flex;
+  gap: 10px;
+}
+
+.control-btn {
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #0066cc, #0099ff);
+  color: white;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 5px #ffffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.control-btn:hover {
+  background: linear-gradient(45deg, #0099ff, #00ccff);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.game-over-overlay,
+.pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.game-over-modal,
+.pause-modal {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 3px solid #00ffff;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+  animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.game-over-title {
+  color: #ff0066;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #ff0066;
+  animation: title-glow 2s infinite alternate;
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow: 0 0 20px #ff0066;
+  }
+  to {
+    text-shadow: 0 0 30px #ff0066, 0 0 40px #ff0066;
+  }
+}
+
+.final-stats {
+  margin: 20px 0;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.final-stats p {
+  margin: 10px 0;
+}
+
+.highlight {
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.restart-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  background: linear-gradient(45deg, #ff6600, #ff9900);
+  color: white;
+  border: 3px solid #ffaa00;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #ffffff;
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
+}
+
+.restart-btn:hover {
+  background: linear-gradient(45deg, #ff9900, #ffcc00);
+  box-shadow: 0 0 30px rgba(255, 170, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+.pause-modal h2 {
+  color: #00ffff;
+  font-size: 36px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.pause-modal p {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.pause-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.pause-controls button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #0066cc, #0099ff);
+  color: white;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.pause-controls button:hover {
+  background: linear-gradient(45deg, #0099ff, #00ccff);
+  transform: translateY(-2px);
+}
+
+.instructions {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.instructions p {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Player health details for coop mode */
+.player-health-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 5px;
+}
+
+.player-health {
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 5px currentColor;
+}
+
+/* Button styling updates */
+.back-to-menu-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.back-to-menu-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(135deg, #ff5252, #d63031);
+}
+
+.back-to-menu-btn:active {
+  transform: translateY(0) scale(0.98);
+}

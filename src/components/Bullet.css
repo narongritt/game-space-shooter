@@ -1,0 +1,84 @@
+.bullet {
+  position: absolute;
+  z-index: 8;
+}
+
+.bullet-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 0 0;
+  position: relative;
+}
+
+.bullet-trail {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 15px;
+  transform: translateX(-50%);
+  border-radius: 0 0 50% 50%;
+}
+
+.player1-bullet .bullet-core {
+  background: linear-gradient(180deg, #00ff41, #00cc33);
+  box-shadow: 0 0 10px #00ff41;
+  animation: player1-bullet-glow 0.3s infinite alternate;
+}
+
+.player1-bullet .bullet-trail {
+  background: linear-gradient(180deg, #00cc33, transparent);
+}
+
+.player2-bullet .bullet-core {
+  background: linear-gradient(180deg, #ff4081, #cc1e66);
+  box-shadow: 0 0 10px #ff4081;
+  animation: player2-bullet-glow 0.3s infinite alternate;
+}
+
+.player2-bullet .bullet-trail {
+  background: linear-gradient(180deg, #cc1e66, transparent);
+}
+
+.alien-bullet .bullet-core {
+  background: linear-gradient(180deg, #ff0066, #cc0033);
+  box-shadow: 0 0 10px #ff0066;
+  animation: alien-bullet-glow 0.3s infinite alternate;
+}
+
+.alien-bullet .bullet-trail {
+  background: linear-gradient(180deg, #cc0033, transparent);
+}
+
+@keyframes player1-bullet-glow {
+  0% {
+    box-shadow: 0 0 10px #00ff41;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes player2-bullet-glow {
+  0% {
+    box-shadow: 0 0 10px #ff4081;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px #ff4081, 0 0 30px #ff4081;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes alien-bullet-glow {
+  0% {
+    box-shadow: 0 0 10px #ff0066;
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px #ff0066, 0 0 30px #ff0066;
+    transform: scale(1.1);
+  }
+}

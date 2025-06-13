@@ -1,0 +1,106 @@
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #0f0f23 0%, #000000 100%);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.game-canvas {
+  position: relative;
+  border: 3px solid #00ffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 50px rgba(0, 255, 255, 0.3),
+    inset 0 0 50px rgba(0, 255, 255, 0.1);
+  background: linear-gradient(180deg, #001122 0%, #000511 100%);
+}
+
+.space-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.stars,
+.stars-2,
+.stars-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-size: 200px 100px;
+  animation: move-stars 50s linear infinite;
+}
+
+.stars-2 {
+  background-image: 
+    radial-gradient(1px 1px at 30px 40px, #eee, transparent),
+    radial-gradient(1px 1px at 70px 80px, #fff, transparent),
+    radial-gradient(1px 1px at 120px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 170px 70px, #fff, transparent);
+  background-size: 200px 120px;
+  animation: move-stars 100s linear infinite;
+}
+
+.stars-3 {
+  background-image: 
+    radial-gradient(1px 1px at 10px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 60px 60px, #ddd, transparent),
+    radial-gradient(1px 1px at 110px 10px, #fff, transparent),
+    radial-gradient(1px 1px at 150px 90px, #eee, transparent);
+  background-size: 200px 140px;
+  animation: move-stars 150s linear infinite;
+}
+
+@keyframes move-stars {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .game-container {
+    padding: 10px;
+  }
+  
+  .game-canvas {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .game-canvas {
+    transform: scale(0.6);
+  }
+}
+
+@media (max-width: 500px) {
+  .game-canvas {
+    transform: scale(0.4);
+  }
+}
